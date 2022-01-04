@@ -7,7 +7,7 @@ class Dragon:
         self.level = level
         self.live = live  #guardar los datos en un archivo por desarollarse
     def player(self):
-        print('\tHello ', self.name, '\n\t\tYou are a : ', self.kind ,' Dragon\n\t\tYour level is ', self.level, '\n\t\tYour stats are: ', self.stats)
+        print('\tHello ', self.name, '\n\t\tYou are a : ', self.kind ,' Dragon\n\t\tYour level is ', self.level, '\n\t\tYour stats are: ', self.live)
 
 
 class Troll:
@@ -28,10 +28,6 @@ class game(Dragon, Troll):
         dragon.player()
     def battle():
         dragon = Dragon
-        a = 0
-        b = 0
-        c = 0
-        d = 0
         a = random.randint(1, 4)
         b = random.randint(1, 4)
         c = random.randint(1, 4)
@@ -39,7 +35,7 @@ class game(Dragon, Troll):
         troll = Troll(a,b,c,d)
         troll.enemy()
         option = input('select an option: \n\t1- attak \n\t2- bag (coming soon)')
-        option = int(option)  #tengo problemas para llegar a la linea 41, no la imprime
+        option = int(option) 
         if option == 1 :
             if dragon.level > troll.live :
                 troll.live = troll.live - dragon.level
