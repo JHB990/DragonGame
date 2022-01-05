@@ -27,19 +27,27 @@ class game(Dragon, Troll):
         dragon = Dragon(input('Name: '), input('kind: '), 1, 1)
         dragon.player()
     def battle():
-        dragon = Dragon
+        dragon = Dragon(self) #sigo teniendo problemas con la llamada a los atributos de la clase dragon para usar live como puntos de vida
         a = random.randint(1, 4)
         b = random.randint(1, 4)
         c = random.randint(1, 4)
         d = random.randint(1, 4)
         troll = Troll(a,b,c,d)
         troll.enemy()
-        option = input('select an option: \n\t1- attak \n\t2- bag (coming soon)')
+        option = input('select an option: \n\t1- attak \n\t2- bag (coming soon)\n')
         option = int(option) 
         if option == 1 :
-            if dragon.level > troll.live :
-                troll.live = troll.live - dragon.level
-                troll.enemy() 
+            if dragon.player().live > troll.live :
+                troll.live = troll.live - dragon.player().live
+                troll.enemy()
+                dragon.player() 
+            elif troll.live > dragon.player().live :
+                dragon.player().live = dragon.player().live - troll.live
+                troll.enemy()
+                dragon.player()
+            elif dragon.player().live == troll.live :
+                troll.enemy()
+                dragon.player()
         
 
 
